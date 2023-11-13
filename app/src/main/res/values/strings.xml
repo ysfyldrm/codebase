@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">codebasecase</string>
+    <string name="description">Açıklama</string>
+    <string name="room_count">Oda Sayısı</string>
+    <string name="building_age">Bina Yaşı</string>
+    <string name="gross_area">Brüt Alan</string>
+    <string name="net_area">Net Alan</string>
+    <string name="all_features">Tüm Özellikler</string>
+    <string name="review">İncele</string>
+    <string name="room">%1$d Oda</string>
+    <string name="bath">%1$d Banyo</string>
+    <string name="gross_m2">%1$d brüt m²</string>
+    <string name="net_m2">%1$d net m²</string>
+    <string name="search_placeholder">İstanbul, Beykoz</string>
+</resources>
