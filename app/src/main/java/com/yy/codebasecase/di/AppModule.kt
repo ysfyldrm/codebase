@@ -8,10 +8,17 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+
+/**
+ * Uygulama genelinde kullanılacak singleton bağımlılıkları sağlar.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+    /**
+     * Context kırmızı çizgimiz :)
+     */
     @Singleton
     @Provides
     fun provideApplicationContext(@ApplicationContext context: Context): Context {

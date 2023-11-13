@@ -22,6 +22,9 @@ class PropertyListViewModel @Inject constructor(
         getProperties()
     }
 
+    /**
+     * İlanları yükler ve sonuçları [_state] üzerinde yayınlar.
+     */
     fun getProperties() {
         viewModelScope.launch {
             getPropertiesUseCase().collect { result ->
@@ -47,12 +50,19 @@ class PropertyListViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Kullanıcının arama sorgusunu günceller ve filtrelenmiş ilanları günceller.
+     * @param query Kullanıcının girdiği arama sorgusu.
+     */
     fun onSearchQueryChanged(query: String) {
         _state.value = _state.value.copy(searchQuery = query)
         if (_state.value.properties.isNotEmpty())
             updateFilteredProperties()
     }
 
+    /**
+     * [_state] içindeki arama sorgusuna göre ilanları filtreler.
+     */
     private fun updateFilteredProperties() {
         _state.value = _state.value.copy(
             filteredProperties = if (_state.value.searchQuery.isBlank()) {

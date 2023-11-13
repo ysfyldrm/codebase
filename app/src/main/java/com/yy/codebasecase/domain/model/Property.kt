@@ -4,6 +4,9 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 
+/**
+ * İlan nesnesi [currency] curreny olarak tanımlanmış postmande SerialName ile düzelttim.
+ */
 @Serializable
 data class Property(
     val bathCount: Int? = null,

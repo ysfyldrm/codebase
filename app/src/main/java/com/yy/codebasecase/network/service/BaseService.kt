@@ -9,6 +9,9 @@ import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 
+/**
+ * Ktor client ile HTTP GET ve POST işlemlerini kolaylaştıran temel servis sınıfı.
+ */
 abstract class BaseService(protected val client: KtorClient) {
 
     protected suspend inline fun <reified T> get(endpoint: String): T {

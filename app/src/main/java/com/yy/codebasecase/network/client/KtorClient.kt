@@ -13,17 +13,23 @@ import io.ktor.http.ContentType
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
-
+/**
+ * HTTP Client için global ayarları içeren singleton nesne.
+ */
 object KtorClient {
 
+    // JSON serialization için yapılandırma.
     private val serializeJson = Json {
         prettyPrint = true
         isLenient = true
         ignoreUnknownKeys = true
     }
 
+    // HttpClient örneği, lazy ile yalnızca kullanıldığında oluşturulur.
     val httpClient: HttpClient by lazy {
         HttpClient {
+
+            // JSON serileştirme özelliğini
             install(ContentNegotiation) {
                 json(
                     json = serializeJson,
@@ -31,6 +37,7 @@ object KtorClient {
                 )
             }
 
+            // Otomatik yeniden deneme özelliğini
             install(HttpRequestRetry) {
                 retryOnServerErrors(3)
                 exponentialDelay(maxDelayMs = 5000)
@@ -38,16 +45,18 @@ object KtorClient {
                     request.headers.append("x-retry-count", 2.toString())
                 }
             }
-
+            // UserAgent özelliğini
             install(UserAgent) {
-                agent = "Ktor YY Case"
+                agent = "CodeBase YY Case"
             }
 
+            // İstek loglama özelliği
             install(Logging) {
                 logger = Logger.ANDROID
                 level = LogLevel.ALL
             }
 
+            // İstek ve yanıt gözlemcisi
             ResponseObserver {
                 val timeDifference = it.responseTime.timestamp - it.requestTime.timestamp
                 val protocolVersion = it.version

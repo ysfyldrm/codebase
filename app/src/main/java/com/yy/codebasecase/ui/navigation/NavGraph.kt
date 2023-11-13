@@ -9,6 +9,10 @@ import com.yy.codebasecase.ui.screens.propertydetail.PropertyDetailScreen
 import com.yy.codebasecase.ui.screens.PropertySharedViewModel
 import com.yy.codebasecase.ui.screens.propertylist.PropertyListScreen
 
+/**
+ * Uygulamanın navigasyon grafiğini tanımlayan composable fonksiyon.
+ * @param navController Uygulamanın navigasyon kontrolünü yöneten NavHostController.
+ */
 @Composable
 fun NavGraph(navController: NavHostController) {
     val viewModel: PropertySharedViewModel = viewModel()

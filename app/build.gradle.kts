@@ -71,9 +71,9 @@ dependencies {
     implementation(libs.material3)
     implementation(libs.kotlin.reflect)
 
+    // Accompanist için
     implementation(libs.accompanist.pager)
     implementation(libs.accompanist.pager.indicators)
-
 
     // Ktor için
     implementation(libs.ktor.client.okhttp)

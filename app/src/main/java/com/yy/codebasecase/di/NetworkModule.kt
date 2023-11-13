@@ -8,6 +8,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+/**
+ * Ktor ve servisler için bağımlılıkları sağlar.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
